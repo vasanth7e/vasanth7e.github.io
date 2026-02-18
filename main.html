@@ -1,0 +1,34 @@
+<html>
+
+<body>
+  <p>Hello world!</p>
+</body>
+<script>
+  const newsLinks = [
+    "https://economictimes.indiatimes.com/",
+    "https://economictimes.indiatimes.com/personal-finance",
+    "https://timesofindia.indiatimes.com/",
+    "https://arstechnica.com/",
+    "https://news.ycombinator.com/"
+  ];
+
+  function pickItem(arr, key) {
+    let index = localStorage.getItem(key);
+    if (index === null) {
+      index = 0;
+    } else {
+      // Convert the retrieved string value back to a number
+      index = Number(index);
+    }
+
+    const item = arr[index];
+    index = (++index) % arr.length;
+    localStorage.setItem(key, index.toString());
+    return item;
+  }
+
+  const link = pickItem(newsLinks, "newsIndex");
+  window.open(link, "_self");
+</script>
+
+</html>
