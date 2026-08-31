@@ -17,7 +17,7 @@
     return shuffled.slice(0, count);
   }
 
-  const link = pickRandomItems(links, 1);
+  const link = pickRandomItems(pushLinks, 1);
   link.forEach(item => {
     window.open(item, "_self", "noreferrer");
   });
